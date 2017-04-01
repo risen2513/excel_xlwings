@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 import datetime
-from write_excel import write
+from copy_write_excel import write
 from open_excel import read
 import xlwings
+from function import copy_data
 
-def do_job(src, src_sheet_name, find_col, target, target_sheet_name, set_col):
+def do_copy_job(src, src_sheet_name, target, target_sheet_name, copy_data_file):
+    (find_col, set_col) = copy_data(copy_data_file)
     starttime = datetime.datetime.now()
     app = xlwings.App(visible=False, add_book=False)
     app.display_alerts = False
@@ -24,11 +26,9 @@ def do_job(src, src_sheet_name, find_col, target, target_sheet_name, set_col):
     print "总用时：", (endtime - starttime).seconds, "秒"
 
 if __name__ == '__main__':
+    copy_data_file = './testdata/copy_setting.txt'
     src_file = './testdata/src.xls'
     src_sheet = u'テスト'
-    find_cols = ['A2', 'B2','D2', 'E2']
     target_file = './testdata/target.xls'
     target_sheet = u'hello'
-    set_cols = [['A2'], ['B', 'C', 'D']]
-
-    do_job(src_file, src_sheet, find_cols, target_file, target_sheet, set_cols)
+    do_copy_job(src_file, src_sheet, target_file, target_sheet, copy_data_file)
