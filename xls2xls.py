@@ -4,9 +4,8 @@ from copy_write_excel import write
 from open_excel import read
 import xlwings
 from function import copy_data
-
-def do_copy_job(src, src_sheet_name, target, target_sheet_name, copy_data_file):
-    (find_col, set_col) = copy_data(copy_data_file)
+def do_copy_job(src, src_sheet_name, target, target_sheet_name, config):
+    (find_col, set_col) = copy_data(config)
     starttime = datetime.datetime.now()
     app = xlwings.App(visible=False, add_book=False)
     app.display_alerts = False
@@ -26,9 +25,9 @@ def do_copy_job(src, src_sheet_name, target, target_sheet_name, copy_data_file):
     print "总用时：", (endtime - starttime).seconds, "秒"
 
 if __name__ == '__main__':
-    copy_data_file = './testdata/copy_setting.txt'
+    conf_file = './testdata/copy_setting.txt'
     src_file = './testdata/src.xls'
     src_sheet = u'テスト'
     target_file = './testdata/target.xls'
     target_sheet = u'hello'
-    do_copy_job(src_file, src_sheet, target_file, target_sheet, copy_data_file)
+    do_copy_job(src_file, src_sheet, target_file, target_sheet, conf_file)

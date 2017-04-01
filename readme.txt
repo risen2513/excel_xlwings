@@ -8,21 +8,24 @@ APIs：
 http://docs.xlwings.org/en/stable/api.html
 
 Todo:
-[ ]1.for循环遍历效率低，需改善
-[x]2.查找替换条件通过List设置
-[x]3.支持写入.xls和.xlsx
-[ ]4.GUI制作（wxPython or PyQt or Web2py）
-[x]5.数据库关联(文本文件格式)
-[x]6.可设置操作条件
-[ ]7.根据条件Check文件内容
-[x]8.两个文件：查找指定数据粘贴到另一个文件指定位置
-[ ]9.可在程序中运行VBA脚本（通过GUI嵌入脚本）
-[ ]10.封装成可脱离环境独立运行的程序（如：EXE）
+[ ]for循环遍历效率低，需改善
+[x]查找替换条件通过List设置
+[x]支持写入.xls和.xlsx
+[x]可设置操作条件
+[ ]生成条件配置文件（5中使用的文本数据库）
+[x]数据库关联(文本文件格式)
+[ ]根据条件Check文件内容
+[x]两个文件：查找指定数据粘贴到另一个文件指定位置
+[ ]GUI制作（wxPython or PyQt or Web2py）
+[ ]可在程序中运行VBA脚本（通过GUI嵌入脚本）
+[ ]封装成可脱离环境独立运行的程序（如：EXE）
+
 
 
 Usage:
 
 一，两个Excel查找指定ID复制数据到指定列
+ xls2xls.py
  调用do_copy_job() 使用copy_write_excel，open_excel，function的copy_data
  配置文件：
     copy_setting.txt
