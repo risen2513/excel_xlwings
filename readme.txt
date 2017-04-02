@@ -2,7 +2,7 @@ Python 2.7
 
 Installation:
 pip install xlwings
-
+Windows需要安装pywin32(32位64位有区分)
 
 APIs：
 http://docs.xlwings.org/en/stable/api.html
