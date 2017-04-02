@@ -26,7 +26,7 @@ def do_copy_job(src, src_sheet_name, target, target_sheet_name, config):
 
 if __name__ == '__main__':
     conf_file = './testdata/copy_setting.txt'
-    src_file = './testdata/src.xls'
+    src_file = ['./testdata/src.xls']
     src_sheet = u'テスト'
     target_file = './testdata/target.xls'
     target_sheet = u'hello'
