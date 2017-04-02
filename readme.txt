@@ -8,7 +8,6 @@ APIs：
 http://docs.xlwings.org/en/stable/api.html
 
 Todo:
-[ ]for循环遍历效率低，需改善
 [x]查找替换条件通过List设置
 [x]支持写入.xls和.xlsx
 [x]可设置操作条件
@@ -19,7 +18,7 @@ Todo:
 [ ]GUI制作（wxPython or PyQt or Web2py）
 [ ]可在程序中运行VBA脚本（通过GUI嵌入脚本）
 [ ]封装成可脱离环境独立运行的程序（如：EXE）
-
+[ ]for循环遍历效率低，需改善    ？？？？？
 
 
 HomeWork：
@@ -45,7 +44,18 @@ Usage:
 
 一，两个Excel查找指定ID复制数据到指定列
  xls2xls.py
- 调用do_copy_job() 使用copy_write_excel，open_excel，function的copy_data
+--------------------------------
+# -*- coding: utf-8 -*-
+import copy_job.do_copy_job as copy_job
+if __name__ == '__main__':
+    conf_file = './testdata/copy_setting.txt'
+    src_file = ['./testdata/src.xls']
+    src_sheet = u'テスト'
+    target_file = './testdata/target.xls'
+    target_sheet = u'hello'
+    copy_job.job(src_file, src_sheet, target_file, target_sheet, conf_file)
+--------------------------------
+
  配置文件：
     copy_setting.txt
  例：
