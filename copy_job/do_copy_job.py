@@ -3,11 +3,10 @@ import datetime
 import xlwings
 import copy_write_excel as copy
 from copy_open_excel import read
-from function import copy_data
+from function import copy_data_search
 
-
-def job(src, src_sheet_name, target, target_sheet_name, config, type):
-    (find_col, set_col) = copy_data(config)
+def job(src, src_sheet_name, target, target_sheet_name, config):
+    (find_col, set_col) = copy_data_search(config)
     starttime = datetime.datetime.now()
     app = xlwings.App(visible=False, add_book=False)
     app.display_alerts = False
@@ -16,10 +15,7 @@ def job(src, src_sheet_name, target, target_sheet_name, config, type):
     src_data = read(src, src_sheet_name, app, find_col)
     rdendtime = datetime.datetime.now()
     wtstarttime = datetime.datetime.now()
-    if type == 'search':
-        write_data = copy.write_search(target, target_sheet_name, src_data, app, set_col)
-    else:
-        write_data = copy.write_copy(target, target_sheet_name, src_data, app, set_col)
+    write_data = copy.write_search(target, target_sheet_name, src_data, app, set_col)
     wtendtime = datetime.datetime.now()
     if write_data:
         app.quit()

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-def copy_data(file_name):
+def copy_data_search(file_name):
     set_cols = []
     find_cols = []
     file_object = open(file_name)
@@ -14,6 +14,7 @@ def copy_data(file_name):
             set_cols.append(arr[1].split(','))
         i += 1
     return find_cols, set_cols
+
 def create_conf(file_name, data):
     file_object = open(file_name, 'w')
     file_object.write(data)
